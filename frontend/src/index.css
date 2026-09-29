@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  color: #edf1e8;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(
+      ellipse at 14% 0%,
+      rgb(130 160 111 / 10%),
+      transparent 34rem
+    ),
+    radial-gradient(
+      ellipse at 94% 38%,
+      rgb(178 117 83 / 8%),
+      transparent 30rem
+    ),
+    linear-gradient(135deg, #101714 0%, #17211d 54%, #111916 100%);
+}
+
+body::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      125deg,
+      transparent 0 88px,
+      rgb(212 224 207 / 2%) 89px 90px,
+      transparent 91px 178px
+    ),
+    linear-gradient(
+      118deg,
+      transparent 28%,
+      rgb(176 198 143 / 5%) 43%,
+      rgb(196 139 105 / 4%) 54%,
+      transparent 72%
+    );
+  background-position:
+    0 0,
+    100% 0;
+  background-size:
+    200% 200%,
+    240% 240%;
+  content: "";
+  opacity: 0.7;
+  pointer-events: none;
+  animation: page-atmosphere 32s ease-in-out infinite alternate;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes page-atmosphere {
+  from {
+    background-position:
+      0 0,
+      100% 0;
+  }
+
+  to {
+    background-position:
+      100% 100%,
+      0 100%;
+  }
+}
+
+@keyframes feed-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
